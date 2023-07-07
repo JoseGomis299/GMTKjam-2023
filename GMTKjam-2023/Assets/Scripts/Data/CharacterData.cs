@@ -9,14 +9,14 @@ public class CharacterData
     public int evasion;
 
     public Weapon currentWeapon;
-    
-    public void InitializeStats()
-    {
-        health = 100;
-        shield = 0;
 
-        luck = Random.Range(-100, 101);
-        aim = Random.Range(-100, 101);
-        evasion = Random.Range(-100, 101);
+    public CharacterData(int health, int shield, int luck, int aim, int evasion, Weapon currentWeapon)
+    {
+        this.health = health;
+        this.shield = shield;
+        this.luck = luck;
+        this.aim = aim;
+        this.evasion = evasion;
+        this.currentWeapon = currentWeapon;
     }
 }
