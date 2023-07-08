@@ -14,6 +14,9 @@ public class MapManager : MonoBehaviour
     [SerializeField] private GameObject characterPrefab;
     [SerializeField] private GameObject chestPrefab;
 
+    [SerializeField] private Transform playersParent;
+    [SerializeField] private Transform chestsParent;
+    
     public int RoundNumber;
 
     private void Awake()
@@ -27,8 +30,8 @@ public class MapManager : MonoBehaviour
         aliverCharacters = new List<Character>();
         for (int i = 0; i < characterCount; i++)
         {
-            aliverCharacters.Add(Instantiate(characterPrefab, GetCharacterSpawnPosition(), Quaternion.Euler(0, 180, 0)).GetComponent<Character>());
-            Instantiate(chestPrefab, GetCharacterSpawnPosition(), Quaternion.identity);
+            aliverCharacters.Add(Instantiate(characterPrefab, GetCharacterSpawnPosition(), Quaternion.Euler(0, 180, 0), playersParent).GetComponent<Character>());
+            Instantiate(chestPrefab, GetCharacterSpawnPosition(), Quaternion.identity, chestsParent);
         }
     }
 
@@ -39,13 +42,13 @@ public class MapManager : MonoBehaviour
         float xPos = transform.position.x + Mathf.Cos(angle) * distance;
         float yPos = transform.position.y + Mathf.Sin(angle) * distance;
 
-        return new(xPos, yPos, transform.position.z - 50);
+        return new(xPos, yPos, transform.position.z-0.15f);
     }
 
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(new Vector3(transform.position.x, transform.position.y, transform.position.z +1), mapRadius);
+        Gizmos.DrawWireSphere(new Vector3(transform.position.x, transform.position.y, transform.position.z), mapRadius);
     }
 }

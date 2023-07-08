@@ -82,11 +82,11 @@ public class SafeZone : MonoBehaviour
         }
     }
 
-    private bool IsInZone(Vector3 position) => Vector3.Distance(position, transform.position) <= zoneRadius*50;
+    private bool IsInZone(Vector3 position) => Vector3.Distance(position, transform.position) <= zoneRadius;
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(new Vector3(transform.position.x, transform.position.y, transform.position.z +1), zoneRadius*50);
+        Gizmos.DrawWireSphere(new Vector3(transform.position.x, transform.position.y, transform.position.z), zoneRadius/2);
     }
 }

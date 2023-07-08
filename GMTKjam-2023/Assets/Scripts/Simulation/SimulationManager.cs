@@ -41,8 +41,8 @@ public class SimulationManager : MonoBehaviour
             Vector2 direction = player.GetComponent<CharacterStateController>().GetDirectionMoving();
 
             player.transform.position += new Vector3(
-                direction.x * Time.deltaTime * 7f,
-                direction.y * Time.deltaTime * 7f,
+                direction.x * Time.deltaTime * 0.01f,
+                direction.y * Time.deltaTime * 0.01f,
                 0);
 
             if (player.GetComponent<CharacterStateController>().GetTimeInDirection() >= player.GetComponent<CharacterStateController>().GetRandomTimeTarget())
@@ -52,6 +52,7 @@ public class SimulationManager : MonoBehaviour
                 player.GetComponent<CharacterStateController>().SetRandomTimeTarget(Random.Range(0.5f, 1.0f));
                 player.GetComponent<CharacterStateController>().ResetTimeInDirection();
             }
+
         }
     }
 
