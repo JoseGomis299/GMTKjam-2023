@@ -54,7 +54,7 @@ public class SafeZone : MonoBehaviour
         mousePos.x -= Screen.width/2f;
         mousePos.y -= Screen.height/2f;
 
-        if (Vector3.Distance(mousePos, transform.position) + nextZoneRadius*50 > zoneRadius*60)
+        if (Vector3.Distance(mousePos, transform.position) + nextZoneRadius*50 > zoneRadius*55)
         {
             Vector3 v = (mousePos - transform.position).normalized;
             mousePos -= v * ((Vector3.Distance(mousePos, transform.position) + nextZoneRadius * 50) - zoneRadius * 60);
@@ -73,9 +73,11 @@ public class SafeZone : MonoBehaviour
 
     private void NextZone()
     {
-        if(--nextZoneCount < 0) return;
+        if(nextZoneCount-- <= 0) return;
+        MapManager.instance.RoundNumber++;
 
         nextZone.gameObject.SetActive(false);
+        editingZone = true;
 
         StartCoroutine(ScaleZone(Vector3.one * nextZoneRadius, nextZoneTime));
         transform.DoMove(nextZone.transform.position,  nextZoneTime, ProjectUtils.Helpers.Transitions.TimeScales.Scaled);
