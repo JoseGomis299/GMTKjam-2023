@@ -8,6 +8,7 @@ public class MapManager : MonoBehaviour
 {
     public List<Character> aliverCharacters { get; private set; }
 
+    public int RoundNumber { get; set; } = 1;
     [SerializeField] private float mapRadius;
     
     public static MapManager instance { get; private set; }
@@ -21,14 +22,23 @@ public class MapManager : MonoBehaviour
 
     public void GenerateCharacters(int characterCount)
     {
+        aliverCharacters = new List<Character>();
+        
         for (int i = 0; i < characterCount; i++)
         {
             aliverCharacters.Add(Instantiate(characterPrefab, GetCharacterSpawnPosition(), Quaternion.identity).GetComponent<Character>());
         }
     }
 
-    private Vector3 GetCharacterSpawnPosition() => new(Random.Range(transform.position.x - mapRadius, transform.position.x + mapRadius),
-            Random.Range(transform.position.y - mapRadius, transform.position.y + mapRadius), transform.position.z);
+    private Vector3 GetCharacterSpawnPosition()
+    {
+        float angle = Random.Range(0f, 360f)*Mathf.Deg2Rad;
+        float distance = Random.Range(-mapRadius, mapRadius);
+        float xPos = transform.position.x + Mathf.Cos(angle) * distance;
+        float yPos = transform.position.y + Mathf.Sin(angle) * distance;
+        
+        return new(xPos, yPos, transform.position.z - 50);
+    }
 
 
     private void OnDrawGizmosSelected()
