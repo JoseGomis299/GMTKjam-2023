@@ -15,6 +15,7 @@ public class Character : MonoBehaviour
     
     public CharacterData GetCharacterData() => new CharacterData(_health, _shield, _luck, _aim, _evasion, _currentWeapon, _itemInventory);
 
+
     private void Start()
     {
         InitializeStats();
