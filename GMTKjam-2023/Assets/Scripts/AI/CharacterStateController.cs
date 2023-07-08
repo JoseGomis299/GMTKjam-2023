@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class CharacterStateController : MonoBehaviour
 {
+    enum MovementStates
+    {
+        random,
+        storm,
+        followPlayer,
+        runFromPlayer,
+        followChest,
+    }
+
     Vector2 directionMoving;
     float randomTimeTarget;
     float timeInDirection;
