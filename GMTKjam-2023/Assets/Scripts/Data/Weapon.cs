@@ -7,6 +7,7 @@ public class Weapon : ScriptableObject
    [SerializeField] private Sprite sprite;
    
    [field:SerializeReference] public int damage { get; private set; }
+   [field:SerializeReference] public ItemTier tier { get; private set; }
    
    //Si tenemos tiempo...
    

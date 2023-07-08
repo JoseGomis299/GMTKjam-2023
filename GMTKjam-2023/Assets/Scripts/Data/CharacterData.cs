@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 public class CharacterData 
 {
@@ -9,8 +10,10 @@ public class CharacterData
     public int evasion;
 
     public Weapon currentWeapon;
+    public List<ConsumableItem> itemInventory;
 
-    public CharacterData(int health, int shield, int luck, int aim, int evasion, Weapon currentWeapon)
+
+    public CharacterData(int health, int shield, int luck, int aim, int evasion, Weapon currentWeapon, List<ConsumableItem> itemInventory)
     {
         this.health = health;
         this.shield = shield;
@@ -18,5 +21,6 @@ public class CharacterData
         this.aim = aim;
         this.evasion = evasion;
         this.currentWeapon = currentWeapon;
+        this.itemInventory = itemInventory;
     }
 }

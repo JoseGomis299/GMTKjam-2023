@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Character : MonoBehaviour
@@ -10,39 +11,13 @@ public class Character : MonoBehaviour
     private int _evasion;
 
     private Weapon _currentWeapon;
+    private List<ConsumableItem> _itemInventory;
     
-    public CharacterData GetCharacterData() => new CharacterData(_health, _shield, _luck, _aim, _evasion, _currentWeapon);
+    public CharacterData GetCharacterData() => new CharacterData(_health, _shield, _luck, _aim, _evasion, _currentWeapon, _itemInventory);
 
     private void Start()
     {
         InitializeStats();
-    }
-
-    public void ReceiveTrueDamage(int damage)
-    {
-        _health -= damage;
-        if(_health < 0) Die();
-    }
-    
-    public void ReceiveDamage(int damage)
-    {
-        _shield -= damage;
-        if (_shield >= 0) return;
-        
-        _health += _shield;
-        _shield = 0;
-        
-        if(_health < 0) Die();
-    }
-
-    public void GrabWeapon(Weapon weapon)
-    {
-        _currentWeapon = weapon;
-    }
-    
-    private void Die()
-    {
-        
     }
     
     private void InitializeStats()
@@ -53,5 +28,50 @@ public class Character : MonoBehaviour
         _luck = Random.Range(-100, 101);
         _aim = Random.Range(-100, 101);
         _evasion = Random.Range(-100, 101);
+
+        _itemInventory = new List<ConsumableItem>();
     }
+
+    public void ReceiveDamage(int damage)
+    {
+        _shield -= damage;
+        if (_shield >= 0) return;
+        
+        _health += _shield;
+        _shield = 0;
+        
+        if(_health < 0) Die();
+    }
+    
+    public void ReceiveTrueDamage(int damage)
+    {
+        _health -= damage;
+        if(_health < 0) Die();
+    }
+    
+    private void Die()
+    {
+        MapManager.instance.aliverCharacters.Remove(this);
+    }
+
+    public void GrabWeapon(Weapon weapon)
+    {
+        _currentWeapon = weapon;
+    }
+    
+    public void GrabItem(ConsumableItem item)
+    {
+        _itemInventory.Add(item);
+    }
+    
+    public void ConsumeItem(ConsumableItem item)
+    {
+        _health += item.healthRegeneration;
+        _shield += item.shieldRegeneration;
+        if (_health > 100) _health = 100;
+        if (_shield > 100) _shield = 100;
+       
+        _itemInventory.Remove(item);
+    }
+    
 }
