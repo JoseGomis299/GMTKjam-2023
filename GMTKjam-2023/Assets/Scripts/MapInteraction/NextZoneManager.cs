@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class NextZoneManager : MonoBehaviour
 {
+    [SerializeField] private LayerMask mapLayer;
     [SerializeField] private SafeZone safeZone;
     [field:SerializeReference]  public float borderRadius { get; private set; }
     private bool _movingZone;
@@ -32,20 +33,26 @@ public class NextZoneManager : MonoBehaviour
 
     private Vector3 GetMousePosition()
     {
-        Vector3 mousePos = Input.mousePosition;
-        mousePos.x -= Screen.width/2f;
-        mousePos.y -= Screen.height/2f;
+        Vector3 mousePos = safeZone.nextZone.transform.position;
+        if (Physics.Raycast(Helpers.Camera.ScreenPointToRay(Input.mousePosition), out var hit, mapLayer))
+        {
+            mousePos = hit.point;
+        }
+        else return mousePos;
 
-        if (Vector3.Distance(mousePos, safeZone.transform.position) + safeZone.nextZoneRadius*50 > safeZone.zoneRadius*70)
+        if (Vector3.Distance(mousePos, safeZone.transform.position) + safeZone.nextZoneRadius*1.4f > safeZone.zoneRadius*1f)
         {
             Vector3 v = (mousePos - safeZone.transform.position).normalized;
-            mousePos -= v * (Vector3.Distance(mousePos, safeZone.transform.position) + safeZone.nextZoneRadius * 50 - safeZone.zoneRadius * 70);
+            mousePos -= v * (Vector3.Distance(mousePos, safeZone.transform.position) + safeZone.nextZoneRadius*1.4f - safeZone.zoneRadius);
         }
+
+        Vector3 pos = transform.position;
+        pos.z = safeZone.transform.position.z;
         
-        if(Vector3.Distance(mousePos,  transform.position) + safeZone.nextZoneRadius*50 > borderRadius*50)
+        if(Vector3.Distance(mousePos,  pos) + safeZone.nextZoneRadius > borderRadius*1.5f)
         {
-            Vector3 v = (mousePos -  transform.position).normalized;
-            mousePos -= v * (Vector3.Distance(mousePos,  transform.position) + safeZone.nextZoneRadius * 50 -   borderRadius*50);
+            Vector3 v = (mousePos -  pos).normalized;
+            mousePos -= v * (Vector3.Distance(mousePos,  pos) + safeZone.nextZoneRadius - borderRadius*1.5f);
         }
 
         return mousePos;
@@ -72,8 +79,8 @@ public class NextZoneManager : MonoBehaviour
     
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(new Vector3(transform.position.x, transform.transform.position.y, transform.position.z +1), borderRadius*50);
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireSphere(new Vector3(transform.position.x, transform.transform.position.y, transform.position.z), borderRadius);
     }
 
     public void EnableMoving()

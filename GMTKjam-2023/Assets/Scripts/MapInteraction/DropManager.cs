@@ -6,9 +6,10 @@ using UnityEngine;
 
 public class DropManager : MonoBehaviour
 {
+    [SerializeField] private LayerMask mapLayer;
     private bool _dropping;
     [SerializeField] private GameObject dropPrefab;
-    [SerializeField] private Transform map;
+    [SerializeField] private Transform parent;
 
     private NextZoneManager _nextZoneManager;
 
@@ -24,7 +25,7 @@ public class DropManager : MonoBehaviour
             Vector3 mousePos = GetMousePosition();
             if(mousePos == Vector3.zero) return;
             
-            Instantiate(dropPrefab, GetMousePosition(), Quaternion.identity, map);
+            Instantiate(dropPrefab, GetMousePosition(), Quaternion.identity, parent);
         }
     }
     
@@ -41,11 +42,14 @@ public class DropManager : MonoBehaviour
 
     private Vector3 GetMousePosition()
     {
-        Vector3 mousePos = Input.mousePosition;
-        mousePos.x -= Screen.width / 2f;
-        mousePos.y -= Screen.height / 2f;
+        Vector3 mousePos = Vector3.zero;
+        if (Physics.Raycast(Helpers.Camera.ScreenPointToRay(Input.mousePosition), out var hit, mapLayer))
+        {
+            mousePos = hit.point;
+        }
+        else return mousePos;
         
-        if(Vector3.Distance(mousePos,  transform.position) > _nextZoneManager.borderRadius*50) return Vector3.zero;
+        if(Vector3.Distance(mousePos,  transform.position) > _nextZoneManager.borderRadius) return Vector3.zero;
         return mousePos;
     }
 }

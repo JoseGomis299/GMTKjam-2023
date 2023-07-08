@@ -33,7 +33,7 @@ public class SimulationManager : MonoBehaviour
         
         foreach(Character player in MapManager.instance.aliverCharacters)
         {
-            player.transform.position += new Vector3(Time.deltaTime*5f, 0f, 0f);
+            player.transform.position += new Vector3(Time.deltaTime*0.01f, 0f, 0f);
         }
     }
 
