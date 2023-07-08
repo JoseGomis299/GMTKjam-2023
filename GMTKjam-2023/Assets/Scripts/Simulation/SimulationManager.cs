@@ -39,23 +39,14 @@ public class SimulationManager : MonoBehaviour
         foreach (Character player in MapManager.instance.aliverCharacters)
         {
             CharacterStateController.MovementStates currentState = GetPlayerState(player);
-
-<<<<<<< Updated upstream
-            player.transform.position += new Vector3(
-                direction.x * Time.deltaTime * 0.01f,
-                direction.y * Time.deltaTime * 0.01f,
-                0);
-
-            if (player.GetComponent<CharacterStateController>().GetTimeInDirection() >= player.GetComponent<CharacterStateController>().GetRandomTimeTarget())
-=======
+            
             if (currentState == CharacterStateController.MovementStates.random)
->>>>>>> Stashed changes
             {
                 Vector2 direction = player.GetComponent<CharacterStateController>().GetDirectionMoving();
 
                 player.transform.position += new Vector3(
-                    direction.x * Time.deltaTime * 7f,
-                    direction.y * Time.deltaTime * 7f,
+                    direction.x * Time.deltaTime * 0.1f,
+                    direction.y * Time.deltaTime * 0.1f,
                     0);
 
                 if (player.GetComponent<CharacterStateController>().GetTimeInDirection() >= player.GetComponent<CharacterStateController>().GetRandomTimeTarget())
@@ -84,8 +75,8 @@ public class SimulationManager : MonoBehaviour
                 Vector2 direction = player.GetComponent<CharacterStateController>().GetDirectionMoving();
 
                 player.transform.position += new Vector3(
-                    direction.x * Time.deltaTime * 7f,
-                    direction.y * Time.deltaTime * 7f,
+                    direction.x * Time.deltaTime * 0.1f,
+                    direction.y * Time.deltaTime * 0.1f,
                     0);
             }
             else if (currentState == CharacterStateController.MovementStates.followPlayer)
@@ -96,8 +87,8 @@ public class SimulationManager : MonoBehaviour
                 Vector2 direction = player.GetComponent<CharacterStateController>().GetDirectionMoving();
 
                 player.transform.position += new Vector3(
-                    direction.x * Time.deltaTime * 7f,
-                    direction.y * Time.deltaTime * 7f,
+                    direction.x * Time.deltaTime * 0.1f,
+                    direction.y * Time.deltaTime * 0.1f,
                     0);
 
             }

@@ -32,13 +32,9 @@ public class MapManager : MonoBehaviour
         chests = new List<Chest>();
         for (int i = 0; i < characterCount; i++)
         {
-<<<<<<< Updated upstream
             aliverCharacters.Add(Instantiate(characterPrefab, GetCharacterSpawnPosition(), Quaternion.Euler(0, 180, 0), playersParent).GetComponent<Character>());
             Instantiate(chestPrefab, GetCharacterSpawnPosition(), Quaternion.identity, chestsParent);
-=======
-            aliverCharacters.Add(Instantiate(characterPrefab, GetCharacterSpawnPosition(), Quaternion.Euler(0, 180, 0)).GetComponent<Character>());
-            chests.Add(Instantiate(chestPrefab, GetCharacterSpawnPosition(), Quaternion.identity).GetComponent<Chest>());
->>>>>>> Stashed changes
+
         }
     }
 

@@ -5966,7 +5966,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <mapRadius>k__BackingField: 0.59
-  characterPrefab: {fileID: 1002985992909965015, guid: 0ee91786388ea9c4bb2b463b729a9633,
+  characterPrefab: {fileID: 4649069101164721834, guid: ffedb3e2f4e00fc4d965ccbd9a70b502,
     type: 3}
   chestPrefab: {fileID: 4649069101164721834, guid: 57a93028abf74fb4dad884b193e791b0,
     type: 3}
