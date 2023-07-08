@@ -184,8 +184,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 550
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -507,6 +507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8314484dcc71bee4496b837d740213c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCount: 100
 --- !u!4 &446023663
 Transform:
   m_ObjectHideFlags: 0
@@ -1032,7 +1033,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapRadius: 428.3
-  characterPrefab: {fileID: 0}
+  characterPrefab: {fileID: 1002985992909965015, guid: 0ee91786388ea9c4bb2b463b729a9633,
+    type: 3}
+  RoundNumber: 0
 --- !u!4 &1941139604
 Transform:
   m_ObjectHideFlags: 0

@@ -13,6 +13,8 @@ public class MapManager : MonoBehaviour
     public static MapManager instance { get; private set; }
     [SerializeField] private GameObject characterPrefab;
 
+    public int RoundNumber;
+
     private void Awake()
     {
         if(instance == null) instance = this;
