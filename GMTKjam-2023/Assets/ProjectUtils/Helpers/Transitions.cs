@@ -38,7 +38,12 @@ namespace ProjectUtils.Helpers
         /// <param name="targetScale">The target scale</param>
         /// <param name="time">The duration in seconds of the scaling effect</param>
         /// </summary>
-        public static void DoScale(this Transform transform, Vector3 targetScale, float time, TimeScales timeScale = TimeScales.Unscaled)  =>  CoroutineController.Start(DoScaleEnumerator(transform, targetScale, time, timeScale));
+        public static IEnumerator DoScale(this Transform transform, Vector3 targetScale, float time,
+            TimeScales timeScale = TimeScales.Unscaled)
+        {
+            yield return CoroutineController.Start(DoScaleEnumerator(transform, targetScale, time, timeScale));
+        }
+
         private static IEnumerator DoScaleEnumerator(Transform transform, Vector3 targetScale, float time, TimeScales timeScale)
         {
             float timer = GetDeltaTime(timeScale);

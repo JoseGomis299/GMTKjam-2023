@@ -5,64 +5,37 @@ using UnityEngine;
 
 public class SafeZone : MonoBehaviour
 {
-    [Header("Radius")]
-    [SerializeField] private float zoneRadius;
+    [field: Header("Radius")]
+    [field:SerializeReference]  public float zoneRadius { get; private set; }
     [SerializeField] private float reductionFactor;
 
     [Header("Timer")]
-    [SerializeField] private float nextZoneTime;
-    [SerializeField] private float idleZoneTime;
     [SerializeField] private int nextZoneCount;
+    [field:SerializeReference] public float nextZoneTime { get; private set; }
+    [field:SerializeReference] public float idleZoneTime { get; private set; }
 
     [Header("Damaging")]
     [SerializeField] private int damage;
     [SerializeField] private float attackSpeed;
 
-    [Header("Next Zone")]
-    [SerializeField] private Transform nextZone;
-    [SerializeField] private float nextZoneRadius;
-    public bool editingZone;
+    [field: Header("Next Zone")]
+    [field:SerializeReference] public Transform nextZone { get; private set; }
+    [field:SerializeReference] public float nextZoneRadius { get; private set; }
+
+    private NextZoneManager _nextZoneManager;
+
     
     private void Start()
     {
+        _nextZoneManager = MapManager.instance.GetComponent<NextZoneManager>();
+        
         transform.localScale = Vector3.one*zoneRadius;
         nextZoneRadius = zoneRadius*reductionFactor;
         nextZone.transform.localScale = nextZoneRadius * Vector3.one;
-
-        InvokeRepeating(nameof(NextZone), idleZoneTime, nextZoneTime+idleZoneTime);
+        
+        InvokeRepeating(nameof(DealDamage), 0, attackSpeed);
     }
     
-    public void StartStorm()
-    {
-        InvokeRepeating(nameof(DealDamage), 0, attackSpeed);
-        transform.localScale = Vector3.one*zoneRadius;
-    }
-
-    private void Update()
-    {
-        if(Input.GetMouseButtonDown(0)) editingZone = !editingZone;
-
-        if (editingZone)
-        {
-            nextZone.transform.position = GetMousePosition();
-        }
-    }
-
-    private Vector3 GetMousePosition()
-    {
-        Vector3 mousePos = Input.mousePosition;
-        mousePos.x -= Screen.width/2f;
-        mousePos.y -= Screen.height/2f;
-
-        if (Vector3.Distance(mousePos, transform.position) + nextZoneRadius*50 > zoneRadius*55)
-        {
-            Vector3 v = (mousePos - transform.position).normalized;
-            mousePos -= v * ((Vector3.Distance(mousePos, transform.position) + nextZoneRadius * 50) - zoneRadius * 60);
-        }
-
-        return mousePos;
-    }
-
     private void DealDamage()
     {
         foreach (var character in MapManager.instance.aliverCharacters)
@@ -71,13 +44,12 @@ public class SafeZone : MonoBehaviour
         }
     }
 
-    private void NextZone()
+    public void NextZone()
     {
         if(nextZoneCount-- <= 0) return;
         MapManager.instance.RoundNumber++;
 
-        nextZone.gameObject.SetActive(false);
-        editingZone = true;
+        _nextZoneManager.EnableMoving();
 
         StartCoroutine(ScaleZone(Vector3.one * nextZoneRadius, nextZoneTime));
         transform.DoMove(nextZone.transform.position,  nextZoneTime, ProjectUtils.Helpers.Transitions.TimeScales.Scaled);
@@ -92,6 +64,7 @@ public class SafeZone : MonoBehaviour
         while (timer < time)
         {
             transform.localScale = initialScale + scaleDelta * (timer/time);
+            nextZone.gameObject.SetActive(false);
             zoneRadius = transform.localScale.x;
             yield return null;
             timer += Time.deltaTime;
@@ -103,15 +76,14 @@ public class SafeZone : MonoBehaviour
         //Modify nextZone size
         if (nextZoneCount > 0)
         {
-            nextZone.gameObject.SetActive(true);
+            _nextZoneManager.ShowNextZone();
             nextZoneRadius *= reductionFactor;
             nextZone.transform.localScale = nextZoneRadius * Vector3.one;
         }
     }
 
-    private bool IsInZone(Vector3 position) => Mathf.Abs(position.x) <= transform.position.x + zoneRadius
-                                               && Mathf.Abs(position.y) <= transform.position.y + zoneRadius;
-    
+    private bool IsInZone(Vector3 position) => Vector3.Distance(position, transform.position) <= zoneRadius*50;
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.blue;

@@ -8,10 +8,11 @@ public class MapManager : MonoBehaviour
 {
     public List<Character> aliverCharacters { get; private set; }
 
-    [SerializeField] private float mapRadius;
+    [field:SerializeReference] public float mapRadius { get; private set; }
     
     public static MapManager instance { get; private set; }
     [SerializeField] private GameObject characterPrefab;
+    [SerializeField] private GameObject chestPrefab;
 
     public int RoundNumber;
 
@@ -27,6 +28,7 @@ public class MapManager : MonoBehaviour
         for (int i = 0; i < characterCount; i++)
         {
             aliverCharacters.Add(Instantiate(characterPrefab, GetCharacterSpawnPosition(), Quaternion.Euler(0, 180, 0)).GetComponent<Character>());
+            Instantiate(chestPrefab, GetCharacterSpawnPosition(), Quaternion.identity);
         }
     }
 

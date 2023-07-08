@@ -13,7 +13,7 @@ public class Character : MonoBehaviour
     private Weapon _currentWeapon;
     private List<ConsumableItem> _itemInventory;
     
-    public CharacterData GetCharacterData() => new CharacterData(_health, _shield, _luck, _aim, _evasion, _currentWeapon, _itemInventory);
+    public CharacterData GetCharacterData() => new CharacterData(name, _health, _shield, _luck, _aim, _evasion, _currentWeapon, _itemInventory);
 
 
     private void Start()
@@ -31,6 +31,7 @@ public class Character : MonoBehaviour
         _evasion = Random.Range(-100, 101);
 
         _itemInventory = new List<ConsumableItem>();
+        name = NamePicker.PickName();
     }
 
     public void ReceiveDamage(int damage)

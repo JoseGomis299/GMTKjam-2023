@@ -14,10 +14,11 @@ public class Chest : MonoBehaviour
     itemList.Sort((x, y) => y.probability - x.probability);
   }
 
-  public Weapon GetWeapon()
+  public Weapon GetWeapon(int luck)
   {
-    float num = Random.value * 100;
+    float num = Random.value * 100 + luck;
     int prob = weaponList[0].probability;
+    if (num >= 100) return weaponList[^1].weapon;
     
     for (int i = 1; i < weaponList.Count; i++)
     {
@@ -33,11 +34,12 @@ public class Chest : MonoBehaviour
     return null;
   }  
   
-  public ConsumableItem GetConsumableItem()
+  public ConsumableItem GetConsumableItem(int luck)
   {
-    float num = Random.value * 100;
+    float num = Random.value * 100 + luck;
     int prob = itemList[0].probability;
-    
+    if (num >= 100) return itemList[^1].item;
+
     for (int i = 1; i < itemList.Count; i++)
     {
       if (num <= prob + itemList[i].probability && num >= prob)
@@ -51,4 +53,12 @@ public class Chest : MonoBehaviour
 
     return null;
   }
+
+  public void GetObjects(int luck, out Weapon weapon, out ConsumableItem item)
+  {
+    weapon = GetWeapon(luck);
+    item = GetConsumableItem(luck);
+    Destroy(gameObject);
+  }
+  
 }
