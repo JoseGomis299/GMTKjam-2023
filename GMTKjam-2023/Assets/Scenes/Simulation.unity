@@ -396,7 +396,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &409937801
 RectTransform:
   m_ObjectHideFlags: 0
@@ -468,11 +468,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c3f2a2ff02310a429c1a5ed188bc738, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <zoneRadius>k__BackingField: 18.41
+  <zoneRadius>k__BackingField: 17.7
   reductionFactor: 0.5
   nextZoneCount: 4
-  <nextZoneTime>k__BackingField: 0
-  <idleZoneTime>k__BackingField: 0
+  <nextZoneTime>k__BackingField: 10
+  <idleZoneTime>k__BackingField: 10
   damage: 0
   attackSpeed: 100
   <nextZone>k__BackingField: {fileID: 1159840409}
@@ -615,7 +615,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1159840409
 RectTransform:
   m_ObjectHideFlags: 0
@@ -692,7 +692,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1161001131
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1033,7 +1033,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe67641a285924149b3beacb92c9daf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <mapRadius>k__BackingField: 458.63
+  <mapRadius>k__BackingField: 450
   characterPrefab: {fileID: 1002985992909965015, guid: 0ee91786388ea9c4bb2b463b729a9633,
     type: 3}
   chestPrefab: {fileID: 4649069101164721834, guid: 57a93028abf74fb4dad884b193e791b0,
@@ -1066,8 +1066,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a6f060bfac21ae4cabb03341fc2e101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallTime: 0
-  dropPrefab: {fileID: 0}
+  dropPrefab: {fileID: 4649069101164721834, guid: 9ac40961ee8af3b4b92a0b4bd25d2ffd,
+    type: 3}
   map: {fileID: 0}
 --- !u!114 &1941139606
 MonoBehaviour:
@@ -1081,5 +1081,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa0ef1f260245104a8b1d14f935c6c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  safeZone: {fileID: 0}
+  safeZone: {fileID: 409937805}
   <borderRadius>k__BackingField: 0

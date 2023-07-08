@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 public class MapManager : MonoBehaviour
 {
     public List<Character> aliverCharacters { get; private set; }
+    public List<Chest> chests { get; private set; }
 
     [field:SerializeReference] public float mapRadius { get; private set; }
     
@@ -28,10 +29,16 @@ public class MapManager : MonoBehaviour
     public void GenerateCharacters(int characterCount)
     {
         aliverCharacters = new List<Character>();
+        chests = new List<Chest>();
         for (int i = 0; i < characterCount; i++)
         {
+<<<<<<< Updated upstream
             aliverCharacters.Add(Instantiate(characterPrefab, GetCharacterSpawnPosition(), Quaternion.Euler(0, 180, 0), playersParent).GetComponent<Character>());
             Instantiate(chestPrefab, GetCharacterSpawnPosition(), Quaternion.identity, chestsParent);
+=======
+            aliverCharacters.Add(Instantiate(characterPrefab, GetCharacterSpawnPosition(), Quaternion.Euler(0, 180, 0)).GetComponent<Character>());
+            chests.Add(Instantiate(chestPrefab, GetCharacterSpawnPosition(), Quaternion.identity).GetComponent<Chest>());
+>>>>>>> Stashed changes
         }
     }
 

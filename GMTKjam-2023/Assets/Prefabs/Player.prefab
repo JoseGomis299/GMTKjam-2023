@@ -12,7 +12,11 @@ GameObject:
   - component: {fileID: 5853474975640720451}
   - component: {fileID: -3493219951769984510}
   - component: {fileID: -2321317320842079708}
+<<<<<<< Updated upstream
   - component: {fileID: -2846136073718240395}
+=======
+  - component: {fileID: 7784638980170476394}
+>>>>>>> Stashed changes
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -114,7 +118,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallTime: 5
+<<<<<<< Updated upstream
 --- !u!114 &-2846136073718240395
+=======
+--- !u!114 &7784638980170476394
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
