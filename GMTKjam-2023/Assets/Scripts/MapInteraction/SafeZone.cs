@@ -30,6 +30,7 @@ public class SafeZone : MonoBehaviour
         nextZone.transform.localScale = nextZoneRadius * Vector3.one;
 
         InvokeRepeating(nameof(NextZone), idleZoneTime, nextZoneTime+idleZoneTime);
+        StartStorm();
     }
     
     public void StartStorm()
@@ -109,9 +110,8 @@ public class SafeZone : MonoBehaviour
         }
     }
 
-    private bool IsInZone(Vector3 position) => Mathf.Abs(position.x) <= transform.position.x + zoneRadius
-                                               && Mathf.Abs(position.y) <= transform.position.y + zoneRadius;
-    
+    private bool IsInZone(Vector3 position) => Vector3.Distance(position, transform.position) <= zoneRadius * 50;
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.blue;

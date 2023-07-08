@@ -15,13 +15,31 @@ public class SimulationManager : MonoBehaviour
     void GeneratePlayers()
     {
         MapManager.instance.GenerateCharacters(playerCount);
+        foreach (Character player in MapManager.instance.aliverCharacters)
+        {
+            player.GetComponent<CharacterStateController>().SetDirectionMoving(new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f)));
+            player.GetComponent<CharacterStateController>().SetRandomTimeTarget(Random.Range(0.5f, 1.0f));
+        }
     }
 
     private void Update()
     {
         foreach(Character player in MapManager.instance.aliverCharacters)
         {
-            player.transform.position += new Vector3(Time.deltaTime*5f, 0f, 0f);
+            Vector2 direction = player.GetComponent<CharacterStateController>().GetDirectionMoving();
+
+            player.transform.position += new Vector3(
+                direction.x * Time.deltaTime * 7f,
+                direction.y * Time.deltaTime * 7f,
+                0);
+
+            if (player.GetComponent<CharacterStateController>().GetTimeInDirection() >= player.GetComponent<CharacterStateController>().GetRandomTimeTarget())
+            {
+                print("HERE");
+                player.GetComponent<CharacterStateController>().SetDirectionMoving(new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f)));
+                player.GetComponent<CharacterStateController>().SetRandomTimeTarget(Random.Range(0.5f, 1.0f));
+                player.GetComponent<CharacterStateController>().ResetTimeInDirection();
+            }
         }
     }
 }
