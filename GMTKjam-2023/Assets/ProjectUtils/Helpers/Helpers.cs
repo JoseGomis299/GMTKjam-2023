@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using Object = UnityEngine.Object;
 
 namespace ProjectUtils.Helpers
@@ -20,12 +21,16 @@ namespace ProjectUtils.Helpers
         private static PointerEventData _eventDataCurrentPosition;
         private static List<RaycastResult> _results;
 
-        public static bool PointerIsOverUi()
+        public static bool PointerIsOverButton()
         {
             _eventDataCurrentPosition = new PointerEventData(EventSystem.current) { position = Input.mousePosition };
             _results = new List<RaycastResult>();
             EventSystem.current.RaycastAll(_eventDataCurrentPosition, _results);
-            return _results.Count > 0;
+            foreach (var result in _results)
+            {
+                if (result.gameObject.GetComponent<Button>() != null) return true;
+            }
+            return false;
         }
 
         public static Vector2 GetWorldPositionOfCanvasElement(RectTransform element)

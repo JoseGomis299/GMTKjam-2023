@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 542079224488162971}
   - component: {fileID: 5853474975640720451}
   - component: {fileID: -3493219951769984510}
-  - component: {fileID: 858994706570397285}
+  - component: {fileID: -2321317320842079708}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b,
     type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.7169812, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67eaa677bb2fb7b48828f4e59ea4ef0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &858994706570397285
+--- !u!114 &-2321317320842079708
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,10 +109,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1002985992909965015}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4daacbc179a13c4e8100960497ec93b, type: 3}
+  m_Script: {fileID: 11500000, guid: 52c064185761c89479947c170dc14bbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  directionMoving: {x: 0, y: 0}
+  fallTime: 5
 --- !u!1 &7224216515523243626
 GameObject:
   m_ObjectHideFlags: 0
