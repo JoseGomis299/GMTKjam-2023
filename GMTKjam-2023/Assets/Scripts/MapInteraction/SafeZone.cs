@@ -24,7 +24,15 @@ public class SafeZone : MonoBehaviour
 
     private NextZoneManager _nextZoneManager;
 
-    
+    //Audio Manger related things
+    public AudioManager audioManager;
+    public AudioClip stormBeginShrink,stormEndShrinkCountdown;
+
+
+    //Audio Logic
+    private bool hasTriggeredCountDown = false;
+
+
     private void Start()
     {
         _nextZoneManager = MapManager.instance.GetComponent<NextZoneManager>();
@@ -50,6 +58,8 @@ public class SafeZone : MonoBehaviour
         MapManager.instance.RoundNumber++;
         BetManager.instance.PayBet();
 
+        audioManager.PlaySound(stormBeginShrink);
+        hasTriggeredCountDown = false;
         _nextZoneManager.EnableMoving();
 
         StartCoroutine(ScaleZone(Vector3.one * nextZoneRadius, nextZoneTime));
@@ -68,6 +78,11 @@ public class SafeZone : MonoBehaviour
             nextZone.gameObject.SetActive(false);
             zoneRadius = transform.localScale.x;
             yield return null;
+            if (timer - time < 8 && !hasTriggeredCountDown)
+            {
+                hasTriggeredCountDown = true;
+                audioManager.PlaySound(stormEndShrinkCountdown);
+            }
             timer += Time.deltaTime;
         }
 

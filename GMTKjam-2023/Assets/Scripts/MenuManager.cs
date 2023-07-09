@@ -11,16 +11,18 @@ public class MenuManager : MonoBehaviour
 
     //Audio Manger related things
     public AudioManager audioManager;
-    public AudioClip ambient;
+    public AudioClip ambient, genericGood, genericBad;
 
     public void StartGame()
     {
+        audioManager.PlaySound(genericGood);
         audioManager.ChangeMusic(ambient);
         SceneManager.LoadScene(gameStartScene);
     }
 
     public void QuitGame()
     {
+        audioManager.PlaySound(genericBad);
         Application.Quit();
     }
 }

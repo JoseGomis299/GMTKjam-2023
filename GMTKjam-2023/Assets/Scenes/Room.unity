@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -858,6 +858,10 @@ MonoBehaviour:
   balanceExtern: {fileID: 1111772790}
   rows: {fileID: 957728612}
   betPlayerColor: {r: 0.0348171, g: 0.7075472, b: 0, a: 1}
+  audioManager: {fileID: 1019506311}
+  computerOpen: {fileID: 8300000, guid: 1ce295d78ff6a8f42b7e77dd648f797e, type: 3}
+  computerClose: {fileID: 8300000, guid: e5186f8cc48abb742b9e2320ad822239, type: 3}
+  computerInteract: {fileID: 8300000, guid: 27f1709c0e3fce74e9c0a8328cfb5b1e, type: 3}
 --- !u!1 &180316979
 GameObject:
   m_ObjectHideFlags: 0
@@ -949,6 +953,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   editZoneButton: {fileID: 955957569}
   dropsButton: {fileID: 1894922532}
+  audioManager: {fileID: 1019506311}
+  button: {fileID: 8300000, guid: 6f84a5a5f98d5e44891016da7beb51a8, type: 3}
 --- !u!1 &206566286
 GameObject:
   m_ObjectHideFlags: 0
@@ -1069,6 +1075,7 @@ GameObject:
   m_Component:
   - component: {fileID: 231572622}
   - component: {fileID: 231572621}
+  - component: {fileID: 231572623}
   m_Layer: 0
   m_Name: Simulation Manager
   m_TagString: Untagged
@@ -1105,6 +1112,22 @@ Transform:
   m_Father: {fileID: 346395604}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &231572623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 231572620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f4db87b26f17614ba2e733f35debbe3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioManager: {fileID: 1019506311}
+  tensionMusic: {fileID: 8300000, guid: e7fcd2aaf30177742b0c7b8c0a93280a, type: 3}
+  ambient: {fileID: 8300000, guid: 7184110818d944b4b89b741350c3686e, type: 3}
+  playerNumberThreshold: 10
 --- !u!1001 &259292969
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2368,6 +2391,79 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 473823982}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &547803152
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6108749261597747074, guid: bc99abdc1df0c1241bd347b5e3f5b9c6,
+        type: 3}
+      propertyPath: m_Name
+      value: Audio Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218538689510503995, guid: bc99abdc1df0c1241bd347b5e3f5b9c6,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218538689510503995, guid: bc99abdc1df0c1241bd347b5e3f5b9c6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -374.13184
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218538689510503995, guid: bc99abdc1df0c1241bd347b5e3f5b9c6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 264.9077
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218538689510503995, guid: bc99abdc1df0c1241bd347b5e3f5b9c6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1274.6346
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218538689510503995, guid: bc99abdc1df0c1241bd347b5e3f5b9c6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218538689510503995, guid: bc99abdc1df0c1241bd347b5e3f5b9c6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218538689510503995, guid: bc99abdc1df0c1241bd347b5e3f5b9c6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218538689510503995, guid: bc99abdc1df0c1241bd347b5e3f5b9c6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218538689510503995, guid: bc99abdc1df0c1241bd347b5e3f5b9c6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218538689510503995, guid: bc99abdc1df0c1241bd347b5e3f5b9c6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218538689510503995, guid: bc99abdc1df0c1241bd347b5e3f5b9c6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bc99abdc1df0c1241bd347b5e3f5b9c6, type: 3}
 --- !u!1 &614319803
 GameObject:
   m_ObjectHideFlags: 0
@@ -3743,7 +3839,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 955957570}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 190218348}
+        m_TargetAssemblyTypeName: MapButtonManager, Assembly-CSharp
+        m_MethodName: PlayButtonSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &955957570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4115,6 +4223,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 976321288}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1019506311 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2049084055884072723, guid: bc99abdc1df0c1241bd347b5e3f5b9c6,
+    type: 3}
+  m_PrefabInstance: {fileID: 547803152}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd8da0b88102244fa6540c27bb90c7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1033958401
 GameObject:
   m_ObjectHideFlags: 0
@@ -5165,7 +5285,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 319680182}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 152093288}
+        m_TargetAssemblyTypeName: BetManager, Assembly-CSharp
+        m_MethodName: PlayInteractSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &1179926729
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5980,7 +6112,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1554222215}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 152093288}
+        m_TargetAssemblyTypeName: BetManager, Assembly-CSharp
+        m_MethodName: PlayInteractSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &1307312802
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7960,7 +8104,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 296326799}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 152093288}
+        m_TargetAssemblyTypeName: BetManager, Assembly-CSharp
+        m_MethodName: PlayInteractSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &1660826291
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8195,7 +8351,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1886054886}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 152093288}
+        m_TargetAssemblyTypeName: BetManager, Assembly-CSharp
+        m_MethodName: PlayOffSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1886054886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8318,9 +8486,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: NextZoneManager, Assembly-CSharp
-        m_MethodName: ToggleEditing
+      - m_Target: {fileID: 190218348}
+        m_TargetAssemblyTypeName: MapButtonManager, Assembly-CSharp
+        m_MethodName: PlayButtonSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8729,6 +8897,8 @@ MonoBehaviour:
     m_Bits: 64
   safeZone: {fileID: 2102063546}
   <borderRadius>k__BackingField: 0.82
+  audioManager: {fileID: 1019506311}
+  selectNextZone: {fileID: 8300000, guid: 8a109631beb26a5498d97ffa35be17c1, type: 3}
 --- !u!1 &1979965609
 GameObject:
   m_ObjectHideFlags: 0
@@ -9804,6 +9974,10 @@ MonoBehaviour:
   attackSpeed: 1
   <nextZone>k__BackingField: {fileID: 1667493167}
   <nextZoneRadius>k__BackingField: 0
+  audioManager: {fileID: 1019506311}
+  stormBeginShrink: {fileID: 8300000, guid: bd6b17353889a574b94874857866e4a4, type: 3}
+  stormEndShrinkCountdown: {fileID: 8300000, guid: baaf3028a8cb5444ba0cdf5f64f75127,
+    type: 3}
 --- !u!114 &2102063547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10710,7 +10884,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2193423312916277649}
   m_LocalRotation: {x: -0.67053807, y: -0.22445217, z: -0.22445217, w: 0.670538}
-  m_LocalPosition: {x: -5.5, y: 46.9, z: 61.9}
+  m_LocalPosition: {x: -6.6, y: 46.9, z: 63.4}
   m_LocalScale: {x: -703.09125, y: -1132.101, z: -161.4003}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10845,6 +11019,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 969e610a1ebbd1a4e88d45aa331051da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioManager: {fileID: 1019506311}
+  laptopOn: {fileID: 8300000, guid: 1ce295d78ff6a8f42b7e77dd648f797e, type: 3}
   bets: {fileID: 152093286}
 --- !u!65 &6769783876737340191
 BoxCollider:

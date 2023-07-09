@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: f7ea25f6ddae372419aa06774c41bb72
   - enabled: 1
-    path: Assets/Scenes/Pruebas Sonido.unity
-    guid: f7147b6ce92a4004988a5c743b8b9c01
+    path: Assets/Scenes/Room.unity
+    guid: 1f90e39818ff0d242bcdf07c2ac0d41d
   m_configObjects: {}

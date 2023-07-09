@@ -232,6 +232,8 @@ MonoBehaviour:
   gameStartScene: 1
   audioManager: {fileID: 209660898}
   ambient: {fileID: 8300000, guid: 7184110818d944b4b89b741350c3686e, type: 3}
+  genericGood: {fileID: 8300000, guid: 1ce295d78ff6a8f42b7e77dd648f797e, type: 3}
+  genericBad: {fileID: 8300000, guid: e5186f8cc48abb742b9e2320ad822239, type: 3}
 --- !u!4 &136310337
 Transform:
   m_ObjectHideFlags: 0

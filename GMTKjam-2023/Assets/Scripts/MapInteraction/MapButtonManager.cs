@@ -10,7 +10,12 @@ public class MapButtonManager : MonoBehaviour
 
     private NextZoneManager _nextZoneManager;
     private DropManager _dropManager;
-    
+
+    //Audio Manger related things
+    public AudioManager audioManager;
+    public AudioClip button;
+
+
     private void Start()
     {
         _nextZoneManager = MapManager.instance.GetComponent<NextZoneManager>();
@@ -27,5 +32,11 @@ public class MapButtonManager : MonoBehaviour
             _dropManager.ToggleDropping();
             _nextZoneManager.DisableEditing();
         });
+    }
+
+    public void PlayButtonSound() 
+    {
+        audioManager.PlaySound(button);
+    
     }
 }

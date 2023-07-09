@@ -28,6 +28,10 @@ public class BetManager : MonoBehaviour
     private Color _playerDefaultColor;
     [SerializeField] private Color betPlayerColor;
 
+    //Audio Manger related things
+    public AudioManager audioManager;
+    public AudioClip computerOpen, computerClose, computerInteract;
+
     private void Awake()
     {
         if(instance == null) instance = this;
@@ -153,5 +157,21 @@ public class BetManager : MonoBehaviour
             _betCharacter = MapManager.instance.aliverCharacters.Find(x => x.name == betData.name);
             playerDataUI.Initialize(_betCharacter.GetCharacterData(), _bidAmount);
         }
+    }
+
+    //Sonido del Ordenador
+    public void PlayOnSound()
+    {
+        audioManager.PlaySound(computerOpen);
+    }
+
+    public void PlayOffSound()
+    {
+        audioManager.PlaySound(computerClose);
+    }
+
+    public void PlayInteractSound()
+    {
+        audioManager.PlaySound(computerInteract);
     }
 }
