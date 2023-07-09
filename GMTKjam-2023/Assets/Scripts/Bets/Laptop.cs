@@ -5,6 +5,12 @@ using UnityEngine;
 
 public class Laptop : MonoBehaviour
 {
+    [SerializeField] private GameObject bets;
+    private void OnMouseDown()
+    {
+        bets.transform.GetChild(0).gameObject.SetActive(true);
+    }
+
     private void OnMouseEnter()
     {
         GetComponent<Outline>().enabled = true;

@@ -48,6 +48,7 @@ public class SafeZone : MonoBehaviour
     {
         if(nextZoneCount-- <= 0) return;
         MapManager.instance.RoundNumber++;
+        BetManager.instance.PayBet();
 
         _nextZoneManager.EnableMoving();
 
