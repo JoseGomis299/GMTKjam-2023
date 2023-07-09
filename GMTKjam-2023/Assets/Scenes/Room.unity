@@ -1089,6 +1089,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCount: 50
+  nextZone: {fileID: 0}
 --- !u!4 &231572622
 Transform:
   m_ObjectHideFlags: 0
@@ -3567,7 +3568,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: a6560a915ef98420e9faacc1c7438823, type: 2}
+  sharedProfile: {fileID: 11400000, guid: db3ff3251bb62d0409f313e87ccab679, type: 2}
 --- !u!4 &907859745
 Transform:
   m_ObjectHideFlags: 0
