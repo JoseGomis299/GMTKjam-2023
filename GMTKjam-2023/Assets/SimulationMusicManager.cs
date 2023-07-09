@@ -15,13 +15,13 @@ public class SimulationMusicManager : MonoBehaviour
     void Update()
     {
 
-        if (MapManager.instance.aliverCharacters.Count <= playerNumberThreshold && !hasTriggeredMusic)
+        if (MapManager.instance.aliveCharacters.Count <= playerNumberThreshold && !hasTriggeredMusic)
         {
             audioManager.ChangeMusic(tensionMusic);
             hasTriggeredMusic = true;
         } 
 
-        if (MapManager.instance.aliverCharacters.Count == 0 && hasTriggeredMusic)
+        if (MapManager.instance.aliveCharacters.Count == 0 && hasTriggeredMusic)
         {
             audioManager.ChangeMusic(ambient);
         }
