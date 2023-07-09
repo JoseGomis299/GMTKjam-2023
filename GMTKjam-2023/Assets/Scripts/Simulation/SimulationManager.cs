@@ -19,6 +19,8 @@ public class SimulationManager : MonoBehaviour
     public static SimulationManager instance { get; private set; }
     public Transform nextZone;
 
+    private int playerNumberThreshold;
+
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -141,6 +143,7 @@ public class SimulationManager : MonoBehaviour
                     0);
             }
         }
+
     }
 
     private void Fight(Character player1, Character player2)

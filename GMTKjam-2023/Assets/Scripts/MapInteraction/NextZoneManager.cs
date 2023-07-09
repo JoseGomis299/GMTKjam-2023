@@ -12,6 +12,9 @@ public class NextZoneManager : MonoBehaviour
     private bool _movingZone;
     private bool _editingZone;
 
+    //Audio Manger related things
+    public AudioManager audioManager;
+    public AudioClip selectNextZone;
 
     private void Start()
     {
@@ -22,11 +25,15 @@ public class NextZoneManager : MonoBehaviour
     private void Update()
     {        
         if(!safeZone.nextZone.gameObject.activeInHierarchy || !_editingZone) return;
-        
-        if(Input.GetMouseButtonDown(0) && !Helpers.PointerIsOverButton()) _movingZone = !_movingZone;
+
+        if (Input.GetMouseButtonDown(0) && !Helpers.PointerIsOverButton())
+        {
+            _movingZone = !_movingZone;
+            audioManager.PlaySound(selectNextZone);
+        }
 
         if (_movingZone)
-        {
+        {       
             safeZone.nextZone.transform.position = GetMousePosition();
         }
     }
