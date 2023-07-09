@@ -33,8 +33,7 @@ public class MapManager : MonoBehaviour
         for (int i = 0; i < characterCount; i++)
         {
             aliverCharacters.Add(Instantiate(characterPrefab, GetCharacterSpawnPosition(), Quaternion.Euler(0, 180, 0), playersParent).GetComponent<Character>());
-            Instantiate(chestPrefab, GetCharacterSpawnPosition(), Quaternion.identity, chestsParent);
-
+            chests.Add(Instantiate(chestPrefab, GetCharacterSpawnPosition(), Quaternion.identity, chestsParent).GetComponent<Chest>());
         }
     }
 

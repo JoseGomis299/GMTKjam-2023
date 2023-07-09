@@ -34,6 +34,11 @@ public class Character : MonoBehaviour
         name = NamePicker.PickName();
     }
 
+    public Weapon GetWeapon()
+    {
+        return _currentWeapon;
+    }
+
     public void ReceiveDamage(int damage)
     {
         _shield -= damage;
@@ -49,6 +54,16 @@ public class Character : MonoBehaviour
     {
         _health -= damage;
         if(_health < 0) Die();
+    }
+
+    public float GetHealth()
+    {
+        return _health;
+    }
+
+    public float GetShield()
+    {
+        return _shield;
     }
     
     private void Die()

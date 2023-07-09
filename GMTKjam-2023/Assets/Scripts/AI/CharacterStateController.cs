@@ -7,13 +7,13 @@ public class CharacterStateController : MonoBehaviour
     public enum MovementStates
     {
         random, //DONE
-        storm,
-        followPlayer, 
-        runFromPlayer,
+        storm, //DONE
+        followPlayer, //DONE
+        runFromPlayer, //DONE
         followChest, //DONE
     }
 
-    public MovementStates movState = MovementStates.followPlayer;
+    public MovementStates movState = MovementStates.random;
 
 
     Vector2 directionMoving;
@@ -21,14 +21,32 @@ public class CharacterStateController : MonoBehaviour
     float timeInDirection;
     Transform playerToFollow;
 
+    Character target;
+
     private void Start()
     {
         timeInDirection = 0f;
-        movState = MovementStates.followPlayer;
+        movState = MovementStates.random;
     }
+
+    public void SetMoveState(MovementStates newMS)
+    {
+        movState = newMS;
+    }
+
     private void Update()
     {
         timeInDirection += Time.deltaTime;
+    }
+
+    public void SetTarget(Character newTarget)
+    {
+        target = newTarget;
+    }
+
+    public Character GetTarget()
+    {
+        return target;
     }
 
     public void SetPlayerToFollow(Transform player)
