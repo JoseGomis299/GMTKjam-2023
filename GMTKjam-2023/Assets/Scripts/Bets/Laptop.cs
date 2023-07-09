@@ -8,14 +8,14 @@ public class Laptop : MonoBehaviour
 
 
     //Audio Manger related things
-    public AudioManager audioManager;
+    //public AudioManager audioManager;
     public AudioClip laptopOn;
 
     [SerializeField] private GameObject bets;
     private void OnMouseDown()
     {
         bets.transform.GetChild(0).gameObject.SetActive(true);
-        audioManager.PlaySound(laptopOn);
+        AudioManager.Instance.PlaySound(laptopOn);
     }
 
     private void OnMouseEnter()

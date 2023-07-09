@@ -29,7 +29,7 @@ public class BetManager : MonoBehaviour
     [SerializeField] private Color betPlayerColor;
 
     //Audio Manger related things
-    public AudioManager audioManager;
+    //public AudioManager audioManager;
     public AudioClip computerOpen, computerClose, computerInteract;
 
     private void Awake()
@@ -162,16 +162,16 @@ public class BetManager : MonoBehaviour
     //Sonido del Ordenador
     public void PlayOnSound()
     {
-        audioManager.PlaySound(computerOpen);
+        AudioManager.Instance.PlaySound(computerOpen);
     }
 
     public void PlayOffSound()
     {
-        audioManager.PlaySound(computerClose);
+        AudioManager.Instance.PlaySound(computerClose);
     }
 
     public void PlayInteractSound()
     {
-        audioManager.PlaySound(computerInteract);
+        AudioManager.Instance.PlaySound(computerInteract);
     }
 }

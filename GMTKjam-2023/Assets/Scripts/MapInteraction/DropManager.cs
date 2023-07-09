@@ -14,7 +14,7 @@ public class DropManager : MonoBehaviour
     private NextZoneManager _nextZoneManager;
 
     //Audio Manger related things
-    public AudioManager audioManager;
+    //public AudioManager audioManager;
     public AudioClip drop;
 
     private void Start()
@@ -29,7 +29,7 @@ public class DropManager : MonoBehaviour
             Vector3 mousePos = GetMousePosition();
             if(mousePos == Vector3.zero) return;
 
-            audioManager.PlaySound(drop);
+            AudioManager.Instance.PlaySound(drop);
             
             Instantiate(dropPrefab, GetMousePosition(), Quaternion.identity, parent);
         }
