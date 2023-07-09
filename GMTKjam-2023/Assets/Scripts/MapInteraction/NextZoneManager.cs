@@ -15,6 +15,7 @@ public class NextZoneManager : MonoBehaviour
     //Audio Manger related things
     //public AudioManager audioManager;
     public AudioClip selectNextZone;
+    //private bool
 
     private void Start()
     {
@@ -29,7 +30,7 @@ public class NextZoneManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !Helpers.PointerIsOverButton())
         {
             _movingZone = !_movingZone;
-            AudioManager.Instance.PlaySound(selectNextZone);
+            //AudioManager.Instance.PlaySound(selectNextZone);
         }
 
         if (_movingZone)
@@ -67,7 +68,7 @@ public class NextZoneManager : MonoBehaviour
     
     private void NextZone()
     {
-        GetComponent<DropManager>().AddDrop(1);
+       GetComponent<DropManager>().AddDrop(1);
        safeZone.NextZone();
     }
 

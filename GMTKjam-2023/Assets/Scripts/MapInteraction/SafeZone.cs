@@ -78,7 +78,7 @@ public class SafeZone : MonoBehaviour
             nextZone.gameObject.SetActive(false);
             zoneRadius = transform.localScale.x;
             yield return null;
-            if (timer - time < 8 && !hasTriggeredCountDown)
+            if (time - timer < 8 && !hasTriggeredCountDown)
             {
                 hasTriggeredCountDown = true;
                 AudioManager.Instance.PlaySound(stormEndShrinkCountdown);
