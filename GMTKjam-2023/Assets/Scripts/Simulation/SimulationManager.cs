@@ -1,10 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using ProjectUtils.ObjectPooling;
+using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEditor;
+using Random = UnityEngine.Random;
 
 public class SimulationManager : MonoBehaviour
 {
+    [SerializeField] private GameObject deathMessage;
+    [SerializeField] private Transform deathLog;
+    
     [SerializeField] private int playerCount;
     List<GameObject> playerVisualList;
 
@@ -26,21 +33,21 @@ public class SimulationManager : MonoBehaviour
     void GeneratePlayers()
     {
         MapManager.instance.GenerateCharacters(playerCount);
-        foreach (Character player in MapManager.instance.aliverCharacters)
+        foreach (Character player in MapManager.instance.aliveCharacters)
         {
-            player.GetComponent<CharacterStateController>().SetDirectionMoving(new Vector2(UnityEngine.Random.Range(-1.0f, 1.0f), UnityEngine.Random.Range(-1.0f, 1.0f)));
-            player.GetComponent<CharacterStateController>().SetRandomTimeTarget(UnityEngine.Random.Range(0.5f, 1.0f));
+            player.GetComponent<CharacterStateController>().SetDirectionMoving(new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f)));
+            player.GetComponent<CharacterStateController>().SetRandomTimeTarget(Random.Range(0.5f, 1.0f));
             SetClosestPlayerTarget(player);
         }
     }
 
     private void Update()
     {
-        return;
         if(_paused) return;
 
-        foreach (Character player in MapManager.instance.aliverCharacters)
+        for (int i = 0; i < MapManager.instance.aliveCharacters.Count; i++)
         {
+            Character player = MapManager.instance.aliveCharacters[i]; 
             CheckPlayerState(player);
             CharacterStateController.MovementStates currentState = GetPlayerState(player);
             
@@ -75,6 +82,12 @@ public class SimulationManager : MonoBehaviour
                 }
                 player.GetComponent<CharacterStateController>().SetDirectionMoving((closestChest.transform.position - player.transform.position).normalized);
 
+                if (Vector3.Distance(closestChest.transform.position, player.transform.position) < 0.01f)
+                {
+                    Weapon weapon;
+                    closestChest.GetComponent<Chest>().GetObjects(player.GetCharacterData().luck, out weapon);
+                    if(weapon.tier > player.GetWeapon().tier) player.GrabWeapon(weapon);
+                }
 
                 Vector2 direction = player.GetComponent<CharacterStateController>().GetDirectionMoving();
 
@@ -89,7 +102,7 @@ public class SimulationManager : MonoBehaviour
 
                 Transform playerToFollow = player.GetComponent<CharacterStateController>().GetPlayerToFollow();
                 player.GetComponent<CharacterStateController>().SetDirectionMoving(-(player.transform.position - playerToFollow.position).normalized);
-                print((player.transform.position - playerToFollow.position).normalized);
+                //print((player.transform.position - playerToFollow.position).normalized);
 
                 Vector2 direction = player.GetComponent<CharacterStateController>().GetDirectionMoving();
 
@@ -97,6 +110,9 @@ public class SimulationManager : MonoBehaviour
                     direction.x * Time.deltaTime * 0.006f,
                     direction.y * Time.deltaTime * 0.006f,
                     0);
+                
+                if (Vector3.Distance(playerToFollow.position, player.transform.position) < 0.01f)
+                    Fight(player, playerToFollow.GetComponent<Character>());
             }
             else if (currentState == CharacterStateController.MovementStates.runFromPlayer)
             {
@@ -104,7 +120,7 @@ public class SimulationManager : MonoBehaviour
 
                 Transform playerToFollow = player.GetComponent<CharacterStateController>().GetPlayerToFollow();
                 player.GetComponent<CharacterStateController>().SetDirectionMoving((player.transform.position - playerToFollow.position).normalized);
-                print((player.transform.position - playerToFollow.position).normalized);
+               //print((player.transform.position - playerToFollow.position).normalized);
 
                 Vector2 direction = player.GetComponent<CharacterStateController>().GetDirectionMoving();
 
@@ -127,6 +143,47 @@ public class SimulationManager : MonoBehaviour
         }
     }
 
+    private void Fight(Character player1, Character player2)
+    {
+        CharacterData p1 = player1.GetCharacterData();
+        CharacterData p2 = player2.GetCharacterData();
+
+        //Player1 attacks first
+        if (p1.luck >= p2.luck)
+        {
+            if(p1.aim > p2.evasion+Random.Range(-200, 201))
+                player2.ReceiveDamage(p1.currentWeapon.damage);
+
+            if (player2.gameObject == null)
+            {
+                GameObject message = Instantiate(deathMessage, deathLog.position, quaternion.identity, deathLog);
+                message.GetComponent<TMP_Text>().text = $"{p1.name} killed {p2.name}";
+                return;
+            }
+            
+            if(p2.aim > p1.evasion+Random.Range(-200, 201))
+                player1.ReceiveDamage(p2.currentWeapon.damage);
+        }
+        //Player2 attacks first
+        else
+        {
+            if(p2.aim > p1.evasion+Random.Range(-200, 201))
+                player1.ReceiveDamage(p2.currentWeapon.damage);
+            
+            if (player1.gameObject == null)
+            {
+                GameObject message = Instantiate(deathMessage, deathLog.position, quaternion.identity, deathLog);
+                message.GetComponent<TMP_Text>().text = $"{p2.name} killed {p1.name}";
+                return;
+            }
+
+            if(p1.aim > p2.evasion+Random.Range(-200, 201))
+                player2.ReceiveDamage(p1.currentWeapon.damage);
+        }
+        
+        
+    }
+
     void CheckPlayerState(Character player)
     {
         float closestChest = Mathf.Infinity;
@@ -141,7 +198,7 @@ public class SimulationManager : MonoBehaviour
 
         float closestPlayerDist = Mathf.Infinity;
         Character closestPlayer = null;
-        foreach (Character currPlayer in MapManager.instance.aliverCharacters)
+        foreach (Character currPlayer in MapManager.instance.aliveCharacters)
         {
             float distance = Vector2.Distance(currPlayer.transform.position, player.transform.position);
             if (distance < closestPlayerDist && currPlayer != player)
@@ -188,13 +245,17 @@ public class SimulationManager : MonoBehaviour
             }
 
         }
+        else if((int)player.GetWeapon().tier < 3 && MapManager.instance.chests.Count > 0)
+        {
+            player.GetComponent<CharacterStateController>().SetMoveState(CharacterStateController.MovementStates.followChest);
+        }
     }
 
     void SetClosestPlayerTarget(Character player)
     {
         GameObject closestPlayer = null;
         float closestDistance = Mathf.Infinity;
-        foreach (Character currPlayer in MapManager.instance.aliverCharacters)
+        foreach (Character currPlayer in MapManager.instance.aliveCharacters)
         {
             float distance = Vector2.Distance(currPlayer.transform.position, player.transform.position);
             if (distance < closestDistance && currPlayer != player)

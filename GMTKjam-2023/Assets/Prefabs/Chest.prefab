@@ -211,17 +211,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07f0f16b011f7d343a404b5a344af8b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemList:
-  - <item>k__BackingField: {fileID: 0}
-    <probability>k__BackingField: 50
-  - <item>k__BackingField: {fileID: 0}
-    <probability>k__BackingField: 35
-  - <item>k__BackingField: {fileID: 0}
-    <probability>k__BackingField: 15
+  itemList: []
   weaponList:
-  - <weapon>k__BackingField: {fileID: 0}
-    <probability>k__BackingField: 50
-  - <weapon>k__BackingField: {fileID: 0}
-    <probability>k__BackingField: 35
-  - <weapon>k__BackingField: {fileID: 0}
+  - <weapon>k__BackingField: {fileID: 11400000, guid: 7c123ae1e588f9a4195ad5bcc4c17803,
+      type: 2}
+    <probability>k__BackingField: 30
+  - <weapon>k__BackingField: {fileID: 11400000, guid: b18c91639be913b4b9bc0128936e283a,
+      type: 2}
+    <probability>k__BackingField: 25
+  - <weapon>k__BackingField: {fileID: 11400000, guid: a0b508edf86ef3b4494cfd53cb628b5e,
+      type: 2}
+    <probability>k__BackingField: 20
+  - <weapon>k__BackingField: {fileID: 11400000, guid: af95ddce183d33f4f8745fcb6f38ee42,
+      type: 2}
     <probability>k__BackingField: 15
+  - <weapon>k__BackingField: {fileID: 11400000, guid: 20fdaa16f24ec3c49bd5d622918fe66b,
+      type: 2}
+    <probability>k__BackingField: 10

@@ -112,6 +112,7 @@ MonoBehaviour:
     <probability>k__BackingField: 35
   - <weapon>k__BackingField: {fileID: 0}
     <probability>k__BackingField: 15
+  isDrop: 0
 --- !u!1 &4649069101164721834
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,20 +213,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07f0f16b011f7d343a404b5a344af8b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemList:
-  - <item>k__BackingField: {fileID: 0}
-    <probability>k__BackingField: 50
-  - <item>k__BackingField: {fileID: 0}
-    <probability>k__BackingField: 35
-  - <item>k__BackingField: {fileID: 0}
-    <probability>k__BackingField: 15
+  itemList: []
   weaponList:
-  - <weapon>k__BackingField: {fileID: 0}
+  - <weapon>k__BackingField: {fileID: 11400000, guid: a0b508edf86ef3b4494cfd53cb628b5e,
+      type: 2}
     <probability>k__BackingField: 50
-  - <weapon>k__BackingField: {fileID: 0}
+  - <weapon>k__BackingField: {fileID: 11400000, guid: af95ddce183d33f4f8745fcb6f38ee42,
+      type: 2}
     <probability>k__BackingField: 35
-  - <weapon>k__BackingField: {fileID: 0}
+  - <weapon>k__BackingField: {fileID: 11400000, guid: 20fdaa16f24ec3c49bd5d622918fe66b,
+      type: 2}
     <probability>k__BackingField: 15
+  isDrop: 0
 --- !u!114 &6870763646752800137
 MonoBehaviour:
   m_ObjectHideFlags: 0

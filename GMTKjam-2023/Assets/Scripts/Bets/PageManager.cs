@@ -17,10 +17,10 @@ public class PageManager : MonoBehaviour
      
     nextPageButton.onClick.AddListener(() =>
     {
-        int numPages = Mathf.CeilToInt(MapManager.instance.aliverCharacters.Count / 20f);
+        int numPages = Mathf.CeilToInt(MapManager.instance.aliveCharacters.Count / 20f);
         if (_currentPage+1 < numPages)
         {
-            BetManager.instance.GenerateBetData(MapManager.instance.aliverCharacters, ++_currentPage);
+            BetManager.instance.GenerateBetData(MapManager.instance.aliveCharacters, ++_currentPage);
             text.text = _currentPage.ToString();
         }
 
@@ -34,7 +34,7 @@ public class PageManager : MonoBehaviour
     { 
         if (_currentPage-1 >= 0)
         {
-            BetManager.instance.GenerateBetData(MapManager.instance.aliverCharacters, --_currentPage);
+            BetManager.instance.GenerateBetData(MapManager.instance.aliveCharacters, --_currentPage);
             text.text = _currentPage.ToString();
         }
 

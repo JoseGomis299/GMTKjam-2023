@@ -26,7 +26,7 @@ public class Character : MonoBehaviour
     private void InitializeStats()
     {
         _health = 100;
-        _shield = 0;
+        _shield = 100;
 
         _luck = Random.Range(-100, 101);
         _aim = Random.Range(-100, 101);
@@ -71,7 +71,8 @@ public class Character : MonoBehaviour
     
     private void Die()
     {
-        MapManager.instance.aliverCharacters.Remove(this);
+        MapManager.instance.aliveCharacters.Remove(this);
+        Destroy(gameObject);
     }
 
     public void GrabWeapon(Weapon weapon)

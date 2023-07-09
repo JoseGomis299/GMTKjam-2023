@@ -2,16 +2,20 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using ProjectUtils.Helpers;
+using TMPro;
 using UnityEngine;
 
 public class DropManager : MonoBehaviour
 {
     [SerializeField] private LayerMask mapLayer;
     private bool _dropping;
+    private int _dropCount;
+    
     [SerializeField] private GameObject dropPrefab;
     [SerializeField] private Transform parent;
 
     private NextZoneManager _nextZoneManager;
+    [SerializeField] private TMP_Text dropCountText;
 
     private void Start()
     {
@@ -20,7 +24,7 @@ public class DropManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && _dropping && !Helpers.PointerIsOverButton())
+        if (Input.GetMouseButtonDown(0) && _dropping && !Helpers.PointerIsOverButton() && _dropCount-- > 0)
         {
             Vector3 mousePos = GetMousePosition();
             if(mousePos == Vector3.zero) return;
@@ -51,5 +55,11 @@ public class DropManager : MonoBehaviour
         
         if(Vector3.Distance(mousePos,  transform.position) > _nextZoneManager.borderRadius) return Vector3.zero;
         return mousePos;
+    }
+
+    public void AddDrop(int n)
+    {
+        _dropCount += n;
+        dropCountText.text = _dropCount.ToString();
     }
 }

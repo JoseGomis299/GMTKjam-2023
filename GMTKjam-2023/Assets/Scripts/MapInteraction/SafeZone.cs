@@ -38,7 +38,7 @@ public class SafeZone : MonoBehaviour
     
     private void DealDamage()
     {
-        foreach (var character in MapManager.instance.aliverCharacters)
+        foreach (var character in MapManager.instance.aliveCharacters)
         {
             if(!IsInZone(character.transform.position)) character.ReceiveTrueDamage(damage);
         }
@@ -83,7 +83,7 @@ public class SafeZone : MonoBehaviour
         }
     }
 
-    private bool IsInZone(Vector3 position) => Vector3.Distance(position, transform.position) <= zoneRadius;
+    public bool IsInZone(Vector3 position) => Vector3.Distance(position, transform.position) <= zoneRadius;
 
     private void OnDrawGizmosSelected()
     {

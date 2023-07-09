@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public class MapManager : MonoBehaviour
 {
-    public List<Character> aliverCharacters { get; private set; }
+    public List<Character> aliveCharacters { get; private set; }
     public List<Chest> chests { get; private set; }
 
     [field:SerializeReference] public float mapRadius { get; private set; }
@@ -28,15 +28,15 @@ public class MapManager : MonoBehaviour
 
     public void GenerateCharacters(int characterCount)
     {
-        aliverCharacters = new List<Character>();
+        aliveCharacters = new List<Character>();
         chests = new List<Chest>();
         for (int i = 0; i < characterCount; i++)
         {
-            aliverCharacters.Add(Instantiate(characterPrefab, GetCharacterSpawnPosition(), Quaternion.Euler(0, 180, 0), playersParent).GetComponent<Character>());
+            aliveCharacters.Add(Instantiate(characterPrefab, GetCharacterSpawnPosition(), Quaternion.Euler(0, 180, 0), playersParent).GetComponent<Character>());
             chests.Add(Instantiate(chestPrefab, GetCharacterSpawnPosition(), Quaternion.identity, chestsParent).GetComponent<Chest>());
         }
         
-        BetManager.instance.GenerateBetData(aliverCharacters, 0);
+        BetManager.instance.GenerateBetData(aliveCharacters, 0);
     }
 
     private Vector3 GetCharacterSpawnPosition()

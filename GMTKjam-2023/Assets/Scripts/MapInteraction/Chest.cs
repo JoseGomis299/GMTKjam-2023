@@ -8,10 +8,24 @@ public class Chest : MonoBehaviour
   [SerializeField] private List<ChestItem> itemList;
   [SerializeField] private List<ChestWeapon> weaponList;
 
-  private void Start()
+  private SafeZone _safeZone;
+  [SerializeField] private bool isDrop;
+
+  private void OnEnable()
   {
     weaponList.Sort((x, y) => y.probability - x.probability);
     itemList.Sort((x, y) => y.probability - x.probability);
+    _safeZone = FindObjectOfType<SafeZone>();
+    if(isDrop) MapManager.instance.chests.Add(this);
+  }
+
+  private void Update()
+  {
+    if (!_safeZone.IsInZone(transform.position))
+    {
+      MapManager.instance.chests.Remove(this);
+      Destroy(gameObject);
+    }
   }
 
   public Weapon GetWeapon(int luck)
@@ -54,10 +68,11 @@ public class Chest : MonoBehaviour
     return null;
   }
 
-  public void GetObjects(int luck, out Weapon weapon, out ConsumableItem item)
+  public void GetObjects(int luck, out Weapon weapon)
   {
     weapon = GetWeapon(luck);
-    item = GetConsumableItem(luck);
+    //item = GetConsumableItem(luck);
+    MapManager.instance.chests.Remove(this);
     Destroy(gameObject);
   }
   

@@ -117,7 +117,7 @@ public class BetManager : MonoBehaviour
 
     public void PayBet()
     {
-        if(_placedBet == null || MapManager.instance.aliverCharacters.Find(x => x.name == _placedBet.name) == null) return;
+        if(_placedBet == null || MapManager.instance.aliveCharacters.Find(x => x.name == _placedBet.name) == null) return;
         
         AddBalance(_bidAmount*_placedBet.multiplier);
         _placedBet = null;
@@ -125,7 +125,7 @@ public class BetManager : MonoBehaviour
         playerDataUI.Initialize(_betCharacter.GetCharacterData(), _bidAmount);
         ResetColorToAll();
 
-        foreach (var character in MapManager.instance.aliverCharacters)
+        foreach (var character in MapManager.instance.aliveCharacters)
         {
             character.GetComponent<SpriteRenderer>().color = _playerDefaultColor;
         }
@@ -150,7 +150,7 @@ public class BetManager : MonoBehaviour
         if (_placedBet == null || _currentBet == _placedBet)
         {
             playerDataUI.gameObject.SetActive(true);
-            _betCharacter = MapManager.instance.aliverCharacters.Find(x => x.name == betData.name);
+            _betCharacter = MapManager.instance.aliveCharacters.Find(x => x.name == betData.name);
             playerDataUI.Initialize(_betCharacter.GetCharacterData(), _bidAmount);
         }
     }

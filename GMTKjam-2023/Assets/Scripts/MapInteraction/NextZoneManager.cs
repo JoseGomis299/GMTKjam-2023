@@ -60,6 +60,7 @@ public class NextZoneManager : MonoBehaviour
     
     private void NextZone()
     {
+        GetComponent<DropManager>().AddDrop(1);
        safeZone.NextZone();
     }
 
