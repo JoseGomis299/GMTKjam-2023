@@ -41,5 +41,12 @@ public class PageManager : MonoBehaviour
         if (_currentPage <= 0) prevPageButton.interactable = false;
         nextPageButton.interactable = true;
     });
+    
+    InvokeRepeating(nameof(RefreshBet), 0, 1);
+  }
+
+  private void RefreshBet()
+  {
+      BetManager.instance.GenerateBetData(MapManager.instance.aliveCharacters, _currentPage);
   }
 }

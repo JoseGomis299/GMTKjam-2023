@@ -21,11 +21,10 @@ public class Chest : MonoBehaviour
 
   private void Update()
   {
-    if (!_safeZone.IsInZone(transform.position))
-    {
-      MapManager.instance.chests.Remove(this);
-      Destroy(gameObject);
-    }
+    if (_safeZone.IsInZone(transform.position)) return;
+    Debug.Log("VAR");
+    MapManager.instance.chests.Remove(this);
+    Destroy(gameObject);
   }
 
   public Weapon GetWeapon(int luck)

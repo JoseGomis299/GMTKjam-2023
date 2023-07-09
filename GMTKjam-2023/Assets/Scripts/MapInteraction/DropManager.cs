@@ -22,14 +22,18 @@ public class DropManager : MonoBehaviour
     private void Start()
     {
        _nextZoneManager = GetComponent<NextZoneManager>();
+       _dropCount = 0;
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && _dropping && !Helpers.PointerIsOverButton() && _dropCount-- > 0)
+        if (Input.GetMouseButtonDown(0) && _dropping && !Helpers.PointerIsOverButton() && _dropCount > 0)
         {
             Vector3 mousePos = GetMousePosition();
             if(mousePos == Vector3.zero) return;
+            
+            _dropCount--;
+            dropCountText.text = _dropCount.ToString();
 
             AudioManager.Instance.PlaySound(drop);
             
@@ -63,7 +67,7 @@ public class DropManager : MonoBehaviour
 
     public void AddDrop(int n)
     {
-        _dropCount += n;
+        _dropCount++;
         dropCountText.text = _dropCount.ToString();
     }
 }

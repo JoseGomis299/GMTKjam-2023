@@ -224,7 +224,7 @@ MonoBehaviour:
   - <weapon>k__BackingField: {fileID: 11400000, guid: 20fdaa16f24ec3c49bd5d622918fe66b,
       type: 2}
     <probability>k__BackingField: 15
-  isDrop: 0
+  isDrop: 1
 --- !u!114 &6870763646752800137
 MonoBehaviour:
   m_ObjectHideFlags: 0
