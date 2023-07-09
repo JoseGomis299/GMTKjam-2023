@@ -12,7 +12,7 @@ public class MapButtonManager : MonoBehaviour
     private DropManager _dropManager;
 
     //Audio Manger related things
-    public AudioManager audioManager;
+    //public AudioManager audioManager;
     public AudioClip button;
 
 
@@ -36,6 +36,7 @@ public class MapButtonManager : MonoBehaviour
 
     public void PlayButtonSound() 
     {
-        audioManager.PlaySound(button);
+        AudioManager.Instance.PlaySound(button);
+
     }
 }

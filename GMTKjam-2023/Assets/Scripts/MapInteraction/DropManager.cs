@@ -17,7 +17,6 @@ public class DropManager : MonoBehaviour
     private NextZoneManager _nextZoneManager;
     [SerializeField] private TMP_Text dropCountText;
 
-    //Audio Manger related things
     public AudioClip drop;
 
     private void Start()

@@ -5,7 +5,7 @@ using UnityEngine;
 public class SimulationMusicManager : MonoBehaviour
 {
     //Audio Manger related things
-    public AudioManager audioManager;
+    //public AudioManager audioManager;
     public AudioClip tensionMusic, ambient;
 
     public int playerNumberThreshold = 10;
@@ -17,13 +17,13 @@ public class SimulationMusicManager : MonoBehaviour
 
         if (MapManager.instance.aliveCharacters.Count <= playerNumberThreshold && !hasTriggeredMusic)
         {
-            audioManager.ChangeMusic(tensionMusic);
+            AudioManager.Instance.ChangeMusic(tensionMusic);
             hasTriggeredMusic = true;
         } 
 
         if (MapManager.instance.aliveCharacters.Count == 0 && hasTriggeredMusic)
         {
-            audioManager.ChangeMusic(ambient);
+            AudioManager.Instance.ChangeMusic(ambient);
         }
 
 

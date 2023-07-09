@@ -13,7 +13,7 @@ public class NextZoneManager : MonoBehaviour
     private bool _editingZone;
 
     //Audio Manger related things
-    public AudioManager audioManager;
+    //public AudioManager audioManager;
     public AudioClip selectNextZone;
 
     private void Start()
@@ -29,7 +29,7 @@ public class NextZoneManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !Helpers.PointerIsOverButton())
         {
             _movingZone = !_movingZone;
-            audioManager.PlaySound(selectNextZone);
+            AudioManager.Instance.PlaySound(selectNextZone);
         }
 
         if (_movingZone)
