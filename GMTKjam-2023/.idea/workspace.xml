@@ -5,52 +5,91 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9c994910-b651-4c4c-b332-5b1950f3a7f4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Art/Fonts/1980v23P03_1 SDF.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/Fonts/1980v23P03_1 SDF.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/Fonts/1980v23P03_1.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/Fonts/1980v23P03_1.ttf.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/Materials/Bloom.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/Materials/Bloom.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/Models/Material.001.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/Models/Material.001.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/Models/New Material.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/Models/New Material.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/Models/carcasa.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/Models/carcasa.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/Models/consola.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/Models/consola.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/Models/pantalla.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/Models/pantalla.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/Models/sala.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/Models/sala.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/Models/sobre.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/Models/sobre.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/Sprites/map 2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/Sprites/map 2.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/Sprites/map 3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/Sprites/map 3.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/Sprites/victoria.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/Sprites/victoria.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/PlayerBet.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/PlayerBet.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Room.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CameraController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CameraController.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Chest.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Chest.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Drop.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Drop.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Sprites/Gun.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Sprites/Gun.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Sprites/bets.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Sprites/bets.jpg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Sprites/epic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Sprites/epic.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Sprites/healthBar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Sprites/healthBar.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Sprites/kukuyky.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Sprites/kukuyky.jpg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Sprites/legendary.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Sprites/legendary.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Sprites/mapa.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Sprites/mapa.jpg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Sprites/pistol.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Sprites/pistol.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Sprites/shieldBar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Sprites/shieldBar.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Sprites/shotgun.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Sprites/shotgun.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Readme.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Resources.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Resources/Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Resources/Materials/OutlineFill.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Resources/Materials/OutlineFill.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Resources/Materials/OutlineMask.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Resources/Materials/OutlineMask.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Resources/Shaders.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Resources/Shaders/OutlineFill.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Resources/Shaders/OutlineFill.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Resources/Shaders/OutlineMask.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Resources/Shaders/OutlineMask.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Samples.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Samples/Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Samples/Materials/Plane.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Samples/Materials/Plane.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Samples/Scenes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Samples/Scenes/QuickOutline.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Samples/Scenes/QuickOutline.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Scripts/Outline.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/QuickOutline/Scripts/Outline.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Bets/BetButton.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Bets/BetButton.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Bets/BetData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Bets/BetData.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Bets/BetManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Bets/BetManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Bets/BidAmountValidator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Bets/BidAmountValidator.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Bets/Laptop.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Bets/Laptop.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Bets/PageManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Bets/PageManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Bets/PlayerDataUI.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Bets/PlayerDataUI.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Weapons/Common.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Weapons/Common.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Weapons/Epic.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Weapons/Epic.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Weapons/Legendary.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Weapons/Legendary.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Weapons/Rare.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Weapons/Rare.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Weapons/Uncommon.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Weapons/Uncommon.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Materials/Bloom.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Materials/Bloom.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Simulation2 1.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Simulation2 1.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Room.unity.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Fonts.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PlayerBet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PlayerBet.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Room.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Room.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AI/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AI/Character.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/Weapon.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapInteraction/DropManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapInteraction/DropManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapInteraction/MapManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapInteraction/MapManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapInteraction/NextZoneManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapInteraction/NextZoneManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapInteraction/SafeZone.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapInteraction/SafeZone.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NamePicker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NamePicker.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Simulation/SimulationManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Simulation/SimulationManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Settings/SampleSceneProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/SampleSceneProfile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_DigitValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_DigitValidator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
