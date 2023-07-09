@@ -8880,6 +8880,8 @@ MonoBehaviour:
   dropPrefab: {fileID: 4649069101164721834, guid: 9ac40961ee8af3b4b92a0b4bd25d2ffd,
     type: 3}
   parent: {fileID: 206566287}
+  audioManager: {fileID: 1019506311}
+  drop: {fileID: 8300000, guid: 43334d4f6c7caf64a807653df5fe29fb, type: 3}
 --- !u!114 &1941139606
 MonoBehaviour:
   m_ObjectHideFlags: 0
