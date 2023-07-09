@@ -18,6 +18,7 @@ namespace TMPro
             {
                 text += ch;
                 pos += 1;
+                if(int.Parse(text) > BetManager.instance.GetBalance()) return (char)0;
                 return ch;
             }
 

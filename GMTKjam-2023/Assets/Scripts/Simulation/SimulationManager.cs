@@ -34,6 +34,7 @@ public class SimulationManager : MonoBehaviour
 
     private void Update()
     {
+        return;
         if(_paused) return;
 
         foreach (Character player in MapManager.instance.aliverCharacters)

@@ -34,16 +34,16 @@ public class NextZoneManager : MonoBehaviour
     private Vector3 GetMousePosition()
     {
         Vector3 mousePos = safeZone.nextZone.transform.position;
-        if (Physics.Raycast(Helpers.Camera.ScreenPointToRay(Input.mousePosition), out var hit, mapLayer))
+        if (Physics.Raycast(Helpers.Camera.ScreenPointToRay(Input.mousePosition), out var hit, 100,mapLayer))
         {
             mousePos = hit.point;
         }
         else return mousePos;
 
-        if (Vector3.Distance(mousePos, safeZone.transform.position) + safeZone.nextZoneRadius*1.4f > safeZone.zoneRadius*1f)
+        if (Vector3.Distance(mousePos, safeZone.transform.position) + safeZone.nextZoneRadius*1.45f > safeZone.zoneRadius*1f)
         {
             Vector3 v = (mousePos - safeZone.transform.position).normalized;
-            mousePos -= v * (Vector3.Distance(mousePos, safeZone.transform.position) + safeZone.nextZoneRadius*1.4f - safeZone.zoneRadius);
+            mousePos -= v * (Vector3.Distance(mousePos, safeZone.transform.position) + safeZone.nextZoneRadius*1.45f - safeZone.zoneRadius);
         }
 
         Vector3 pos = transform.position;

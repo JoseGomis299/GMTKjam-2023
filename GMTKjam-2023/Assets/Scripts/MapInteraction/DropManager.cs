@@ -43,7 +43,7 @@ public class DropManager : MonoBehaviour
     private Vector3 GetMousePosition()
     {
         Vector3 mousePos = Vector3.zero;
-        if (Physics.Raycast(Helpers.Camera.ScreenPointToRay(Input.mousePosition), out var hit, mapLayer))
+        if (Physics.Raycast(Helpers.Camera.ScreenPointToRay(Input.mousePosition), out var hit, 100,mapLayer))
         {
             mousePos = hit.point;
         }
