@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+    [SerializeField] private Weapon startWeapon;
+    
     private int _health;
     private int _shield;
 
@@ -16,7 +18,7 @@ public class Character : MonoBehaviour
     public CharacterData GetCharacterData() => new CharacterData(name, _health, _shield, _luck, _aim, _evasion, _currentWeapon, _itemInventory);
 
 
-    private void Start()
+    private void Awake()
     {
         InitializeStats();
     }
@@ -30,6 +32,7 @@ public class Character : MonoBehaviour
         _aim = Random.Range(-100, 101);
         _evasion = Random.Range(-100, 101);
 
+        _currentWeapon = startWeapon;
         _itemInventory = new List<ConsumableItem>();
         name = NamePicker.PickName();
     }

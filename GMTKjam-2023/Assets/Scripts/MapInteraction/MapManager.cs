@@ -35,6 +35,8 @@ public class MapManager : MonoBehaviour
             aliverCharacters.Add(Instantiate(characterPrefab, GetCharacterSpawnPosition(), Quaternion.Euler(0, 180, 0), playersParent).GetComponent<Character>());
             chests.Add(Instantiate(chestPrefab, GetCharacterSpawnPosition(), Quaternion.identity, chestsParent).GetComponent<Chest>());
         }
+        
+        BetManager.instance.GenerateBetData(aliverCharacters, 0);
     }
 
     private Vector3 GetCharacterSpawnPosition()

@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Weapon")]
 public class Weapon : ScriptableObject
 {
-   [SerializeField] private Sprite sprite;
+   [SerializeField] public Sprite sprite;
    
    [field:SerializeReference] public int damage { get; private set; }
    [field:SerializeReference] public ItemTier tier { get; private set; }
